@@ -1,0 +1,11 @@
+# the counter of requests and the cache of answers
+data/
+*.sqlite3
+
+# Python
+__pycache__/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+.DS_Store
