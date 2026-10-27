@@ -110,6 +110,15 @@ def test_a_cancelled_journey_or_one_without_any_vehicle_is_left_out():
     assert [j["legs"][3]["line"] for j in found] == ["FlixBus 832"]
 
 
+def test_a_journey_with_a_plane_is_left_out():
+    # Düsseldorf airport → Maastricht, 7 November 2026: Transitous answered Eurowings to Cagliari, a night there, KLM to
+    # Amsterdam and the trains — 30 hours. A way over the ground never takes a plane.
+    answer = fixture("plan_bru_mst.json")
+    answer["itineraries"][0]["legs"][1]["mode"] = "AIRPLANE"
+    found = journeys(answer)
+    assert [j["legs"][3]["line"] for j in found] == ["FlixBus 832"]
+
+
 def test_the_suburban_train_of_v1_and_of_later_versions_is_a_train_and_an_unknown_mode_is_other():
     answer = fixture("plan_bru_mst.json")
     legs = answer["itineraries"][0]["legs"]

@@ -6,7 +6,8 @@
 * a request waits at most 10 seconds; a timeout, a dropped connection or a 5xx is tried once more, nothing else is;
 * a 429 from Transitous is never retried: the caller hears «slow down» at once.
 
-Only the two points (rounded to 4 decimals, about 11 m), the time and the direction leave the computer.
+Only the two points (rounded to 4 decimals, about 11 m), the time, the direction and the kinds of transport leave the
+computer. Planes are never asked for, and the walk to the first stop and from the last one may take half an hour.
 """
 
 import json
@@ -28,6 +29,16 @@ log = logging.getLogger("travel_transit")
 MAX_BODY = 20_000_000
 DETAIL_CHARS = 200
 ITINERARIES = 5  # asked every time: the cache then serves any `max` up to 5
+# Transitous's timetables include flights (some airports publish them): a journey by public transport on the ground
+# never takes a plane. RAIL is every kind of train, from the S-Bahn to the long-distance ones.
+TRANSIT_MODES = {
+    "transit": "RAIL,BUS,COACH,TRAM,SUBWAY,FERRY,FUNICULAR,AERIAL_LIFT",
+    "rail": "RAIL",
+    "bus": "BUS,COACH",
+}
+# The walk to the first stop and from the last one may take half an hour (MOTIS's default is 15 minutes): the railway
+# station of an airport is often more than a kilometre from the terminal, as in Düsseldorf
+STREET_LEG_S = 1800
 
 
 class UpstreamError(Exception):
@@ -76,6 +87,7 @@ class Question:
     to_lon: float
     time: datetime  # aware
     arrive_by: bool = False
+    modes: str = "transit"  # a key of TRANSIT_MODES
 
     @property
     def params(self) -> dict[str, str]:
@@ -86,13 +98,16 @@ class Question:
             "time": moment.strftime("%Y-%m-%dT%H:%M:%SZ"),
             "arriveBy": "true" if self.arrive_by else "false",
             "numItineraries": str(ITINERARIES),
+            "transitModes": TRANSIT_MODES[self.modes],
+            "maxPreTransitTime": str(STREET_LEG_S),
+            "maxPostTransitTime": str(STREET_LEG_S),
             "detailedTransfers": "false",  # no turn-by-turn walks: smaller answers, less work for the server
         }
 
     @property
     def key(self) -> str:
         p = self.params
-        return f"{PLAN_PATH}|{p['fromPlace']}|{p['toPlace']}|{p['time']}|{p['arriveBy']}"
+        return f"{PLAN_PATH}|{p['fromPlace']}|{p['toPlace']}|{p['time']}|{p['arriveBy']}|{self.modes}"
 
 
 def _error_text(body: bytes) -> str:

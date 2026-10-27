@@ -46,8 +46,19 @@ def test_the_question_goes_to_v1_plan_with_rounded_points_the_time_in_utc_and_li
         "time": "2026-11-09T18:30:00Z",
         "arriveBy": "false",
         "numItineraries": "5",
+        "transitModes": "RAIL,BUS,COACH,TRAM,SUBWAY,FERRY,FUNICULAR,AERIAL_LIFT",
+        "maxPreTransitTime": "1800",
+        "maxPostTransitTime": "1800",
         "detailedTransfers": "false",
     }
+
+
+def test_trains_only_or_buses_only_and_never_a_plane():
+    rail = Question(1, 2, 3, 4, datetime(2026, 11, 13, 8, 0, tzinfo=UTC), modes="rail")
+    bus = Question(1, 2, 3, 4, datetime(2026, 11, 13, 8, 0, tzinfo=UTC), modes="bus")
+    assert rail.params["transitModes"] == "RAIL" and bus.params["transitModes"] == "BUS,COACH"
+    assert all("AIRPLANE" not in q.params["transitModes"] for q in (rail, bus, QUESTION))
+    assert len({rail.key, bus.key, Question(1, 2, 3, 4, rail.time).key}) == 3  # each kind is its own answer
 
 
 def test_every_request_says_who_asks_and_waits_ten_seconds_at_most(settings, store, clock):

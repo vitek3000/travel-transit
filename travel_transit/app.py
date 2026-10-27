@@ -56,7 +56,9 @@ def create_app(
     @app.post("/journeys")
     def journeys(body: JourneysIn) -> JourneysOut:
         """Journeys by public transport between two points, leaving after (or arriving before) a moment."""
-        question = Question(body.from_.lat, body.from_.lon, body.to.lat, body.to.lon, body.time, body.arrive_by)
+        question = Question(
+            body.from_.lat, body.from_.lon, body.to.lat, body.to.lon, body.time, body.arrive_by, body.modes
+        )
         where = f"{_point(body.from_.lat, body.from_.lon)} -> {_point(body.to.lat, body.to.lon)}"
         try:
             answer, cached = client.plan(question)

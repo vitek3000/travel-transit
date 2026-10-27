@@ -23,6 +23,10 @@ class JourneysIn(BaseModel):
     time: AwareDatetime = Field(description="ISO 8601 with an offset: «2026-11-09T19:00:00+01:00»")
     arrive_by: bool = Field(default=False, description="`time` is the latest arrival, not the earliest departure")
     max: int = Field(default=3, ge=1, le=5, description="at most this many journeys")
+    modes: Literal["transit", "rail", "bus"] = Field(
+        default="transit",
+        description="`transit`: any public transport but planes; `rail`: trains only; `bus`: buses and coaches only",
+    )
 
 
 class Stop(BaseModel):

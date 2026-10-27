@@ -1,6 +1,6 @@
 [project]
 name = "travel-transit"
-version = "0.2.0"
+version = "0.3.0"
 description = "A small, polite HTTP service that asks Transitous for public-transport journeys."
 readme = "README.md"
 license = "MIT"

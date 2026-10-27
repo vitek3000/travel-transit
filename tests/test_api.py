@@ -75,6 +75,15 @@ def test_max_cuts_the_list_and_the_second_ask_comes_from_the_cache(make):
     assert again["cached"] is True and len(again["journeys"]) == 1 and len(opener.requests) == 1
 
 
+def test_trains_only_are_asked_as_such_and_kept_apart_in_the_cache(make):
+    client, opener = make(fixture_bytes("plan_bru_mst.json"), fixture_bytes("plan_bru_mst.json"))
+    client.post("/journeys", json=BODY)
+    answer = client.post("/journeys", json={**BODY, "modes": "rail"}).json()
+    assert answer["cached"] is False and len(opener.requests) == 2
+    assert "transitModes=RAIL&" in opener.requests[1].full_url
+    assert "AIRPLANE" not in opener.requests[0].full_url
+
+
 def test_an_arrival_by_a_time_is_asked_as_such(make):
     client, opener = make(fixture_bytes("plan_empty.json"))
     answer = client.post("/journeys", json={**BODY, "arrive_by": True}).json()
@@ -88,6 +97,7 @@ def test_an_arrival_by_a_time_is_asked_as_such(make):
         {"time": "2026-11-09T19:45:00"},  # no offset: whose clock?
         {"max": 6},
         {"max": 0},
+        {"modes": "plane"},
         {"from": {"lat": 91, "lon": 4}},
         {"to": {"lat": 50, "lon": 181}},
         {"extra": True},

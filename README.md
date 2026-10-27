@@ -37,7 +37,7 @@ Settings, all optional, from environment variables:
 ### `GET /health`
 
 ```json
-{"status": "ok", "version": "0.2.0", "requests_last_24h": 12, "daily_limit": 700}
+{"status": "ok", "version": "0.3.0", "requests_last_24h": 12, "daily_limit": 700}
 ```
 
 ### `POST /journeys`
@@ -48,12 +48,19 @@ Settings, all optional, from environment variables:
   "to": {"lat": 50.8497, "lon": 5.6896, "name": "Maastricht"},
   "time": "2026-11-09T19:45:00+01:00",
   "arrive_by": false,
-  "max": 3
+  "max": 3,
+  "modes": "transit"
 }
 ```
 
 * `time` is ISO 8601 **with an offset**: the earliest departure, or with `"arrive_by": true` the latest arrival.
 * `max` is 1 to 5 (3 by default). `name` is optional: it replaces MOTIS's `START` and `END` in the answer.
+* `modes` (0.3.0): `transit` (the default) is any public transport but planes, `rail` is trains only, `bus` is buses
+  and coaches only. Planes are never asked for: some airports publish their flights in Transitous, and a journey "by
+  public transport" from Düsseldorf airport once came back by way of Cagliari. A journey that still has a plane is left
+  out.
+* The walk to the first stop and from the last one may take up to 30 minutes (MOTIS's default is 15): the railway
+  station of an airport is often more than a kilometre from the terminal.
 
 Answer (shortened):
 

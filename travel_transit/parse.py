@@ -159,6 +159,8 @@ def _journey(raw: dict, names: dict[str, str | None]) -> dict | None:
     legs = [_leg(leg, names) for leg in legs_raw]
     if not any(leg["mode"] not in NOT_TRANSIT for leg in legs):
         return None  # a walk is not a public-transport journey
+    if any(leg["mode"] == "flight" for leg in legs):
+        return None  # asked without planes; an answer that still has one is not a way over the ground
     departure = local_time(raw["startTime"], legs_raw[0]["from"].get("tz"))
     arrival = local_time(raw["endTime"], legs_raw[-1]["to"].get("tz"))
     duration = raw.get("duration")
