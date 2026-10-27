@@ -37,7 +37,7 @@ Settings, all optional, from environment variables:
 ### `GET /health`
 
 ```json
-{"status": "ok", "version": "0.1.0", "requests_last_24h": 12, "daily_limit": 700}
+{"status": "ok", "version": "0.2.0", "requests_last_24h": 12, "daily_limit": 700}
 ```
 
 ### `POST /journeys`
@@ -67,14 +67,14 @@ Answer (shortened):
       "arrival": "2026-11-09T21:59:00+01:00",
       "legs": [
         {"mode": "walk", "operator": null, "line": null, "headsign": null,
-         "from": {"name": "Brussels Central", "lat": 50.8454, "lon": 4.357},
-         "to": {"name": "Bruxelles-Central", "lat": 50.84565, "lon": 4.3568},
+         "from": {"name": "Brussels Central", "lat": 50.8454, "lon": 4.357, "track": null},
+         "to": {"name": "Bruxelles-Central", "lat": 50.84565, "lon": 4.3568, "track": null},
          "departure": "2026-11-09T19:59:00+01:00", "arrival": "2026-11-09T20:01:00+01:00",
          "duration_min": 2, "geometry": null},
         {"mode": "train", "operator": "NMBS/SNCB", "operator_url": "http://www.belgiantrain.be/",
          "line": "IC 518", "headsign": "Eupen",
-         "from": {"name": "Bruxelles-Central", "lat": 50.84565, "lon": 4.3568},
-         "to": {"name": "Liège-Guillemins", "lat": 50.62455, "lon": 5.5667},
+         "from": {"name": "Bruxelles-Central", "lat": 50.84565, "lon": 4.3568, "track": "3"},
+         "to": {"name": "Liège-Guillemins", "lat": 50.62455, "lon": 5.5667, "track": "5"},
          "departure": "2026-11-09T20:01:00+01:00", "arrival": "2026-11-09T20:59:00+01:00",
          "duration_min": 58, "geometry": [[50.84565, 4.3568], [50.8597, 4.36085], "…"]}
       ]
@@ -86,6 +86,10 @@ Answer (shortened):
 ```
 
 * Times are local to the stop where they happen, with the offset of that place.
+* `track` is the platform or stand of a stop («3», «12b», «B»), when the timetable gives one: the current track when
+  real-time data changed it, else the scheduled one (MOTIS's `track`, else `scheduledTrack`). `null` when it is not
+  known, which is often the case for buses and for the ends of a walk. Added in 0.2.0; a caller written for 0.1.0
+  simply does not read it.
 * `mode` is one of `walk`, `bike`, `car`, `train`, `metro`, `tram`, `bus`, `coach`, `ferry`, `cable`, `flight`,
   `other`.
 * `geometry` is the leg's line as `[[lat, lon], …]`, thinned to at most 200 points (about 25 m of tolerance). Walks

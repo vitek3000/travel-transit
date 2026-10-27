@@ -3,6 +3,7 @@
 MOTIS gives every time in UTC and the time zone of every stop; a journey here gives each time in the local time of
 the place it happens, with its offset («2026-11-09T20:01:00+01:00»), which is what a timetable on the platform says.
 The two ends of the trip are called START and END by MOTIS: they get the names the caller gave, when it gave them.
+A stop carries its platform or stand (`track`) when the timetable has one: the current one, else the scheduled one.
 
 An itinerary that cannot be read (a field missing or of the wrong type) is skipped, not guessed.
 """
@@ -45,6 +46,7 @@ MODES = {
 }
 NOT_TRANSIT = frozenset({"walk", "bike", "car", "other"})
 ENDS = {"START": "from", "END": "to"}
+MAX_TRACK = 20  # a platform is «3», «12b» or «Perron 15»: a longer text is not one
 
 
 def _zone(name: Any) -> ZoneInfo | None:
@@ -75,12 +77,25 @@ def _number(value: Any) -> float:
     return float(value)
 
 
+def _track(raw: dict) -> str | None:
+    """The platform or stand: the current one (changed by real-time data) when MOTIS has it, else the timetable's."""
+    for key in ("track", "scheduledTrack"):
+        value = _text(raw.get(key))
+        if value is not None and len(value) <= MAX_TRACK:
+            return value
+    return None
+
+
 def _place(raw: dict, names: dict[str, str | None]) -> dict:
     name = _text(raw.get("name")) or "?"
     end = ENDS.get(name) if raw.get("vertexType") != "TRANSIT" and not raw.get("stopId") else None
     if end is not None:
         name = names.get(end) or ("Start" if end == "from" else "Destination")
-    return {"name": name, "lat": round(_number(raw["lat"]), 5), "lon": round(_number(raw["lon"]), 5)}
+    place = {"name": name, "lat": round(_number(raw["lat"]), 5), "lon": round(_number(raw["lon"]), 5)}
+    track = _track(raw)
+    if track is not None:
+        place["track"] = track
+    return place
 
 
 def _geometry(raw: Any, ends: list[dict]) -> list[list[float]] | None:

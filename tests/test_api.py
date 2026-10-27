@@ -61,6 +61,8 @@ def test_journeys_with_legs_stops_times_geometry_and_the_attribution(make):
     train = first["legs"][1]
     assert train["mode"] == "train" and train["operator"] == "NMBS/SNCB" and train["line"] == "IC 518"
     assert train["from"]["name"] == "Bruxelles-Central" and train["to"]["name"] == "Liège-Guillemins"
+    assert (train["from"]["track"], train["to"]["track"]) == ("3", "5")  # the platforms
+    assert first["legs"][3]["to"]["track"] is None  # none known: null
     assert len(train["geometry"]) >= 2
     assert first["legs"][0]["from"]["name"] == "Brussels Airport"
     assert first["legs"][0]["geometry"] is None  # a walk without details from MOTIS

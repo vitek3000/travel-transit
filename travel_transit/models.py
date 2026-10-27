@@ -29,6 +29,7 @@ class Stop(BaseModel):
     name: str
     lat: float
     lon: float
+    track: str | None = Field(default=None, description="the platform or stand («3», «B»), when the timetable has it")
 
 
 class Leg(BaseModel):

@@ -80,6 +80,8 @@
       "tz": "Europe/Brussels",
       "departure": "2026-11-09T19:01:00Z",
       "scheduledDeparture": "2026-11-09T19:01:00Z",
+      "track": "3",
+      "scheduledTrack": "3",
       "vertexType": "TRANSIT"
      },
      "to": {
@@ -90,6 +92,7 @@
       "tz": "Europe/Brussels",
       "arrival": "2026-11-09T19:59:00Z",
       "scheduledArrival": "2026-11-09T19:59:00Z",
+      "scheduledTrack": "5",
       "vertexType": "TRANSIT"
      },
      "legGeometry": {
@@ -160,6 +163,8 @@
       "tz": "Europe/Brussels",
       "departure": "2026-11-09T20:08:00Z",
       "scheduledDeparture": "2026-11-09T20:08:00Z",
+      "track": "2",
+      "scheduledTrack": "1",
       "vertexType": "TRANSIT"
      },
      "to": {
@@ -240,6 +245,7 @@
       "tz": "Europe/Brussels",
       "departure": "2026-11-09T20:48:00Z",
       "scheduledDeparture": "2026-11-09T20:48:00Z",
+      "scheduledTrack": "B",
       "vertexType": "TRANSIT"
      },
      "to": {

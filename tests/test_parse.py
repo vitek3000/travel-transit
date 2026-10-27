@@ -22,13 +22,36 @@ def test_a_train_leg_names_the_operator_the_line_the_headsign_and_both_stops():
     assert train["operator_url"] == "http://www.belgiantrain.be/"
     assert train["line"] == "IC 518"
     assert train["headsign"] == "Eupen"
-    assert train["from"] == {"name": "Bruxelles-Central", "lat": 50.84565, "lon": 4.3568}
+    assert train["from"] == {"name": "Bruxelles-Central", "lat": 50.84565, "lon": 4.3568, "track": "3"}
     assert train["to"]["name"] == "Liège-Guillemins"
     assert (train["departure"], train["arrival"], train["duration_min"]) == (
         "2026-11-09T20:01:00+01:00",
         "2026-11-09T20:59:00+01:00",
         58,
     )
+
+
+def test_a_stop_carries_its_platform_the_current_one_first_then_the_scheduled_one():
+    legs = journeys(fixture("plan_bru_mst.json"))[0]["legs"]
+    ic, re18, bus = legs[1], legs[3], legs[5]
+    assert ic["from"]["track"] == "3"  # the same in both
+    assert ic["to"]["track"] == "5"  # only the timetable's
+    assert re18["from"]["track"] == "2"  # changed on the day: «2», not the «1» of the timetable
+    assert "track" not in re18["to"]  # none known: no key, not a guess
+    assert bus["from"]["track"] == "B"  # a stand of a bus station is a track too
+    assert "track" not in legs[0]["from"]  # the start of a walk
+
+
+def test_an_empty_or_odd_platform_is_left_out():
+    answer = fixture("plan_bru_mst.json")
+    legs = answer["itineraries"][0]["legs"]
+    legs[1]["from"]["track"] = "  "  # empty now, the timetable's «3» stays
+    legs[1]["to"]["scheduledTrack"] = 5  # not a text
+    legs[3]["from"]["track"] = "x" * 40  # not a platform; the scheduled «1» is
+    got = journeys(answer)[0]["legs"]
+    assert got[1]["from"]["track"] == "3"
+    assert "track" not in got[1]["to"]
+    assert got[3]["from"]["track"] == "1"
 
 
 def test_the_second_train_and_the_coach():
