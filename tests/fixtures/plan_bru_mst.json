@@ -1,0 +1,583 @@
+{
+ "requestParameters": {},
+ "debugOutput": {},
+ "from": {
+  "name": "START",
+  "lat": 50.8454,
+  "lon": 4.357,
+  "vertexType": "NORMAL"
+ },
+ "to": {
+  "name": "END",
+  "lat": 50.8497,
+  "lon": 5.6896,
+  "vertexType": "NORMAL"
+ },
+ "direct": [],
+ "itineraries": [
+  {
+   "duration": 7200,
+   "startTime": "2026-11-09T18:59:00Z",
+   "endTime": "2026-11-09T20:59:00Z",
+   "transfers": 2,
+   "legs": [
+    {
+     "mode": "WALK",
+     "duration": 120,
+     "startTime": "2026-11-09T18:59:00Z",
+     "endTime": "2026-11-09T19:01:00Z",
+     "scheduledStartTime": "2026-11-09T18:59:00Z",
+     "scheduledEndTime": "2026-11-09T19:01:00Z",
+     "realTime": false,
+     "scheduled": false,
+     "from": {
+      "name": "START",
+      "lat": 50.8454,
+      "lon": 4.357,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T18:59:00Z",
+      "scheduledDeparture": "2026-11-09T18:59:00Z",
+      "vertexType": "NORMAL"
+     },
+     "to": {
+      "name": "Bruxelles-Central",
+      "stopId": "be-sncb_8813003",
+      "lat": 50.845654,
+      "lon": 4.356804,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T19:01:00Z",
+      "scheduledArrival": "2026-11-09T19:01:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "",
+      "precision": 7,
+      "length": 0
+     }
+    },
+    {
+     "mode": "REGIONAL_RAIL",
+     "duration": 3480,
+     "startTime": "2026-11-09T19:01:00Z",
+     "endTime": "2026-11-09T19:59:00Z",
+     "scheduledStartTime": "2026-11-09T19:01:00Z",
+     "scheduledEndTime": "2026-11-09T19:59:00Z",
+     "realTime": false,
+     "scheduled": true,
+     "headsign": "Eupen",
+     "agencyName": "NMBS/SNCB",
+     "agencyUrl": "http://www.belgiantrain.be/",
+     "routeShortName": "IC 518",
+     "routeLongName": "Eupen -- Ostende",
+     "displayName": "IC 518",
+     "tripShortName": "518",
+     "cancelled": false,
+     "from": {
+      "name": "Bruxelles-Central",
+      "stopId": "be-sncb_8813003",
+      "lat": 50.845654,
+      "lon": 4.356804,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T19:01:00Z",
+      "scheduledDeparture": "2026-11-09T19:01:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "Liège-Guillemins",
+      "stopId": "be-sncb_8841004",
+      "lat": 50.62455,
+      "lon": 5.566698,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T19:59:00Z",
+      "scheduledArrival": "2026-11-09T19:59:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "ohvxh]_wdbrAgziOgjqEocpJ_im`@fwoD_jkl@__gEo{kXg}yEgc{}Avj}B_`kIfr|Ow_mDn_wEo`pGvscDgeka@ny{Iovnh@vnoHwe|Onyo@gjhQnza\\g_}u@fejA_t`[ftpHgjaR~_dJopxv@npyKordPnt|Kwinn@no}Mgw}mAvxp@_qfbA~xyG_{lRfzlK_peH",
+      "precision": 7,
+      "length": 23
+     }
+    },
+    {
+     "mode": "WALK",
+     "duration": 300,
+     "startTime": "2026-11-09T19:59:00Z",
+     "endTime": "2026-11-09T20:04:00Z",
+     "scheduledStartTime": "2026-11-09T19:59:00Z",
+     "scheduledEndTime": "2026-11-09T20:04:00Z",
+     "realTime": false,
+     "scheduled": false,
+     "from": {
+      "name": "Liège-Guillemins",
+      "stopId": "be-sncb_8841004",
+      "lat": 50.62455,
+      "lon": 5.566698,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T19:59:00Z",
+      "arrival": "2026-11-09T19:59:00Z",
+      "scheduledDeparture": "2026-11-09T19:59:00Z",
+      "scheduledArrival": "2026-11-09T19:59:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "Liège-Guillemins",
+      "stopId": "nl-OpenOV_2993399",
+      "lat": 50.624283,
+      "lon": 5.566592,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T20:04:00Z",
+      "scheduledArrival": "2026-11-09T20:04:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "",
+      "precision": 7,
+      "length": 0
+     }
+    },
+    {
+     "mode": "REGIONAL_RAIL",
+     "duration": 2220,
+     "startTime": "2026-11-09T20:08:00Z",
+     "endTime": "2026-11-09T20:45:00Z",
+     "scheduledStartTime": "2026-11-09T20:08:00Z",
+     "scheduledEndTime": "2026-11-09T20:45:00Z",
+     "realTime": false,
+     "scheduled": true,
+     "headsign": "Maastricht",
+     "agencyName": "Arriva",
+     "agencyUrl": "https://www.arriva.nl",
+     "routeShortName": "Sneltrein RE18",
+     "routeLongName": "Liège-Guillemins <-> Maastricht S16900",
+     "displayName": "Sneltrein RE18",
+     "tripShortName": "16973",
+     "cancelled": false,
+     "from": {
+      "name": "Liège-Guillemins",
+      "stopId": "nl-OpenOV_2993399",
+      "lat": 50.624283,
+      "lon": 5.566592,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T20:08:00Z",
+      "scheduledDeparture": "2026-11-09T20:08:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "Maastricht",
+      "stopId": "nl-OpenOV_2993481",
+      "lat": 50.85068,
+      "lon": 5.705606,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T20:45:00Z",
+      "scheduledArrival": "2026-11-09T20:45:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "_nrqd]wmqdiBf`kCofsI_xaM_plGgvsFoiuZ_nrVoosRwokx@gozWokg^o~`@w_qGvzmF",
+      "precision": 7,
+      "length": 8
+     }
+    },
+    {
+     "mode": "WALK",
+     "duration": 120,
+     "startTime": "2026-11-09T20:45:00Z",
+     "endTime": "2026-11-09T20:47:00Z",
+     "scheduledStartTime": "2026-11-09T20:45:00Z",
+     "scheduledEndTime": "2026-11-09T20:47:00Z",
+     "realTime": false,
+     "scheduled": false,
+     "from": {
+      "name": "Maastricht",
+      "stopId": "nl-OpenOV_2993481",
+      "lat": 50.85068,
+      "lon": 5.705606,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T20:45:00Z",
+      "arrival": "2026-11-09T20:45:00Z",
+      "scheduledDeparture": "2026-11-09T20:45:00Z",
+      "scheduledArrival": "2026-11-09T20:45:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "Maastricht, Station Maastricht",
+      "stopId": "nl-OpenOV_4208788",
+      "lat": 50.85085,
+      "lon": 5.704316,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T20:47:00Z",
+      "scheduledArrival": "2026-11-09T20:47:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "",
+      "precision": 7,
+      "length": 0
+     }
+    },
+    {
+     "mode": "BUS",
+     "duration": 120,
+     "startTime": "2026-11-09T20:48:00Z",
+     "endTime": "2026-11-09T20:50:00Z",
+     "scheduledStartTime": "2026-11-09T20:48:00Z",
+     "scheduledEndTime": "2026-11-09T20:50:00Z",
+     "realTime": false,
+     "scheduled": true,
+     "headsign": "Daalhof",
+     "agencyName": "Arriva",
+     "agencyUrl": "https://www.arriva.nl",
+     "routeShortName": "5",
+     "routeLongName": "Daalhof via MUMC - Heugem",
+     "displayName": "5",
+     "tripShortName": "",
+     "cancelled": false,
+     "from": {
+      "name": "Maastricht, Station Maastricht",
+      "stopId": "nl-OpenOV_4208788",
+      "lat": 50.85085,
+      "lon": 5.704316,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T20:48:00Z",
+      "scheduledDeparture": "2026-11-09T20:48:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "Maastricht, Mosae Forum/Centrum",
+      "stopId": "nl-OpenOV_4220033",
+      "lat": 50.85256,
+      "lon": 5.693933,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T20:50:00Z",
+      "scheduledArrival": "2026-11-09T20:50:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "gt{{h]_osxkBwk`@v|iE",
+      "precision": 7,
+      "length": 2
+     }
+    },
+    {
+     "mode": "WALK",
+     "duration": 540,
+     "startTime": "2026-11-09T20:50:00Z",
+     "endTime": "2026-11-09T20:59:00Z",
+     "scheduledStartTime": "2026-11-09T20:50:00Z",
+     "scheduledEndTime": "2026-11-09T20:59:00Z",
+     "realTime": false,
+     "scheduled": false,
+     "from": {
+      "name": "Maastricht, Mosae Forum/Centrum",
+      "stopId": "nl-OpenOV_4220033",
+      "lat": 50.85256,
+      "lon": 5.693933,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T20:50:00Z",
+      "arrival": "2026-11-09T20:50:00Z",
+      "scheduledDeparture": "2026-11-09T20:50:00Z",
+      "scheduledArrival": "2026-11-09T20:50:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "END",
+      "lat": 50.8497,
+      "lon": 5.6896,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T20:59:00Z",
+      "scheduledArrival": "2026-11-09T20:59:00Z",
+      "vertexType": "NORMAL"
+     },
+     "legGeometry": {
+      "points": "",
+      "precision": 7,
+      "length": 0
+     }
+    }
+   ]
+  },
+  {
+   "duration": 6840,
+   "startTime": "2026-11-09T18:31:00Z",
+   "endTime": "2026-11-09T20:25:00Z",
+   "transfers": 2,
+   "legs": [
+    {
+     "mode": "WALK",
+     "duration": 120,
+     "startTime": "2026-11-09T18:31:00Z",
+     "endTime": "2026-11-09T18:33:00Z",
+     "scheduledStartTime": "2026-11-09T18:31:00Z",
+     "scheduledEndTime": "2026-11-09T18:33:00Z",
+     "realTime": false,
+     "scheduled": false,
+     "from": {
+      "name": "START",
+      "lat": 50.8454,
+      "lon": 4.357,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T18:31:00Z",
+      "scheduledDeparture": "2026-11-09T18:31:00Z",
+      "vertexType": "NORMAL"
+     },
+     "to": {
+      "name": "Bruxelles-Central",
+      "stopId": "be-sncb_8813003",
+      "lat": 50.845654,
+      "lon": 4.356804,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T18:33:00Z",
+      "scheduledArrival": "2026-11-09T18:33:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "",
+      "precision": 7,
+      "length": 0
+     }
+    },
+    {
+     "mode": "REGIONAL_RAIL",
+     "duration": 1320,
+     "startTime": "2026-11-09T18:33:00Z",
+     "endTime": "2026-11-09T18:55:00Z",
+     "scheduledStartTime": "2026-11-09T18:33:00Z",
+     "scheduledEndTime": "2026-11-09T18:55:00Z",
+     "realTime": false,
+     "scheduled": true,
+     "headsign": "Louvain",
+     "agencyName": "NMBS/SNCB",
+     "agencyUrl": "http://www.belgiantrain.be/",
+     "routeShortName": "IC 418",
+     "routeLongName": "Louvain -- Courtrai",
+     "displayName": "IC 418",
+     "tripShortName": "418",
+     "cancelled": false,
+     "from": {
+      "name": "Bruxelles-Central",
+      "stopId": "be-sncb_8813003",
+      "lat": 50.845654,
+      "lon": 4.356804,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T18:33:00Z",
+      "scheduledDeparture": "2026-11-09T18:33:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "Louvain",
+      "stopId": "be-sncb_8833001",
+      "lat": 50.882282,
+      "lon": 4.715868,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T18:55:00Z",
+      "scheduledArrival": "2026-11-09T18:55:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "ohvxh]_wdbrAgelOwztEokvJoogb@fjxD_smj@gseEg~_Xo~hFg~lzAnwlBwtdLn`bIg{`C",
+      "precision": 7,
+      "length": 8
+     }
+    },
+    {
+     "mode": "WALK",
+     "duration": 300,
+     "startTime": "2026-11-09T18:55:00Z",
+     "endTime": "2026-11-09T19:00:00Z",
+     "scheduledStartTime": "2026-11-09T18:55:00Z",
+     "scheduledEndTime": "2026-11-09T19:00:00Z",
+     "realTime": false,
+     "scheduled": false,
+     "from": {
+      "name": "Louvain",
+      "stopId": "be-sncb_8833001",
+      "lat": 50.882282,
+      "lon": 4.715868,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T18:55:00Z",
+      "arrival": "2026-11-09T18:55:00Z",
+      "scheduledDeparture": "2026-11-09T18:55:00Z",
+      "scheduledArrival": "2026-11-09T18:55:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "Leuven Station (Perron 15)",
+      "stopId": "eu-flixbus_dcc0a9fe-9603-11e6-9066-549f350fcb0c",
+      "lat": 50.88409,
+      "lon": 4.714237,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T19:00:00Z",
+      "scheduledArrival": "2026-11-09T19:00:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "",
+      "precision": 7,
+      "length": 0
+     }
+    },
+    {
+     "mode": "COACH",
+     "duration": 3900,
+     "startTime": "2026-11-09T19:05:00Z",
+     "endTime": "2026-11-09T20:10:00Z",
+     "scheduledStartTime": "2026-11-09T19:05:00Z",
+     "scheduledEndTime": "2026-11-09T20:10:00Z",
+     "realTime": false,
+     "scheduled": true,
+     "headsign": "Maastricht (International Bus Station)",
+     "agencyName": "FlixBus-eu",
+     "agencyUrl": "https://global.flixbus.com",
+     "routeShortName": "FlixBus 832",
+     "routeLongName": "Maastricht - Brussels - Lille",
+     "displayName": "FlixBus 832",
+     "tripShortName": "",
+     "cancelled": false,
+     "from": {
+      "name": "Leuven Station (Perron 15)",
+      "stopId": "eu-flixbus_dcc0a9fe-9603-11e6-9066-549f350fcb0c",
+      "lat": 50.88409,
+      "lon": 4.714237,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T19:05:00Z",
+      "scheduledDeparture": "2026-11-09T19:05:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "Maastricht (International Bus Station)",
+      "stopId": "eu-flixbus_dcbd7a02-9603-11e6-9066-549f350fcb0c",
+      "lat": 50.852543,
+      "lon": 5.705562,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T20:10:00Z",
+      "scheduledArrival": "2026-11-09T20:10:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "g{dpi]_fi|xA_e_EncmN_bfZgbef@g`iNwijk@npfC_{p`B~t}F_tr\\o{iJw{lYg`rBoppW_|hP_|ip@_{gHwxeiAguKw|aq@nesH_xqr@~ylQw}uaAvhsEocxi@fimAga~e@gfyGotf`@nllPgyNvywr@vgro@",
+      "precision": 7,
+      "length": 18
+     }
+    },
+    {
+     "mode": "WALK",
+     "duration": 120,
+     "startTime": "2026-11-09T20:10:00Z",
+     "endTime": "2026-11-09T20:12:00Z",
+     "scheduledStartTime": "2026-11-09T20:10:00Z",
+     "scheduledEndTime": "2026-11-09T20:12:00Z",
+     "realTime": false,
+     "scheduled": false,
+     "from": {
+      "name": "Maastricht (International Bus Station)",
+      "stopId": "eu-flixbus_dcbd7a02-9603-11e6-9066-549f350fcb0c",
+      "lat": 50.852543,
+      "lon": 5.705562,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T20:10:00Z",
+      "arrival": "2026-11-09T20:10:00Z",
+      "scheduledDeparture": "2026-11-09T20:10:00Z",
+      "scheduledArrival": "2026-11-09T20:10:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "Maastricht Station perron D",
+      "stopId": "be-delijn_gs:delijn:406350",
+      "lat": 50.85135,
+      "lon": 5.70401,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T20:12:00Z",
+      "scheduledArrival": "2026-11-09T20:12:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "",
+      "precision": 7,
+      "length": 0
+     }
+    },
+    {
+     "mode": "BUS",
+     "duration": 180,
+     "startTime": "2026-11-09T20:13:00Z",
+     "endTime": "2026-11-09T20:16:00Z",
+     "scheduledStartTime": "2026-11-09T20:13:00Z",
+     "scheduledEndTime": "2026-11-09T20:16:00Z",
+     "realTime": false,
+     "scheduled": true,
+     "headsign": "Maaseik Van Eycklaan",
+     "agencyName": "De Lijn",
+     "agencyUrl": "https://www.delijn.be?gtfsversion=20261025_20261231_003000",
+     "routeShortName": "63",
+     "routeLongName": "Maastricht - Maaseik",
+     "displayName": "63",
+     "tripShortName": "62",
+     "cancelled": false,
+     "from": {
+      "name": "Maastricht Station perron D",
+      "stopId": "be-delijn_gs:delijn:406350",
+      "lat": 50.85135,
+      "lon": 5.70401,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T20:13:00Z",
+      "scheduledDeparture": "2026-11-09T20:13:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "Maastricht Mosae Forum/Centrum",
+      "stopId": "be-delijn_gs:delijn:406318",
+      "lat": 50.852673,
+      "lon": 5.694094,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T20:16:00Z",
+      "scheduledArrival": "2026-11-09T20:16:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "legGeometry": {
+      "points": "wle|h]gmmxkB_xX~v`E",
+      "precision": 7,
+      "length": 2
+     }
+    },
+    {
+     "mode": "WALK",
+     "duration": 540,
+     "startTime": "2026-11-09T20:16:00Z",
+     "endTime": "2026-11-09T20:25:00Z",
+     "scheduledStartTime": "2026-11-09T20:16:00Z",
+     "scheduledEndTime": "2026-11-09T20:25:00Z",
+     "realTime": false,
+     "scheduled": false,
+     "from": {
+      "name": "Maastricht Mosae Forum/Centrum",
+      "stopId": "be-delijn_gs:delijn:406318",
+      "lat": 50.852673,
+      "lon": 5.694094,
+      "tz": "Europe/Brussels",
+      "departure": "2026-11-09T20:16:00Z",
+      "arrival": "2026-11-09T20:16:00Z",
+      "scheduledDeparture": "2026-11-09T20:16:00Z",
+      "scheduledArrival": "2026-11-09T20:16:00Z",
+      "vertexType": "TRANSIT"
+     },
+     "to": {
+      "name": "END",
+      "lat": 50.8497,
+      "lon": 5.6896,
+      "tz": "Europe/Brussels",
+      "arrival": "2026-11-09T20:25:00Z",
+      "scheduledArrival": "2026-11-09T20:25:00Z",
+      "vertexType": "NORMAL"
+     },
+     "legGeometry": {
+      "points": "",
+      "precision": 7,
+      "length": 0
+     }
+    }
+   ]
+  }
+ ],
+ "previousPageCursor": "EARLIER|1797010800",
+ "nextPageCursor": "LATER|1797010800"
+}

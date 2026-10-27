@@ -1,0 +1,10 @@
+{
+ "requestParameters": {},
+ "debugOutput": {},
+ "from": {"name": "START", "lat": 46.2381, "lon": 6.109, "level": 0.0, "vertexType": "NORMAL"},
+ "to": {"name": "END", "lat": 45.5715, "lon": 6.8278, "level": 0.0, "vertexType": "NORMAL"},
+ "direct": [],
+ "itineraries": [],
+ "previousPageCursor": "EARLIER|1797674400",
+ "nextPageCursor": "LATER|1797674400"
+}
